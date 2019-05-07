@@ -1,2 +1,2 @@
-# ecomp
-Atividades de capacitação e estudo desenvolvidas na Ecomp
+# capacitacao_ecomp_js
+Atividade de capacitação para JavaScript desenvolvida na Ecomp.
