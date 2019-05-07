@@ -1,3 +1,5 @@
+var contador = 0; /* variavel global para contar numero de tarefas */
+
 function recebe_teste() { /* recebe tarefa pelo campo de texto e manda para o campo 'a fazer' */  
     var tarefa = document.getElementById("entrada_tarefa").value;
     
@@ -6,7 +8,7 @@ function recebe_teste() { /* recebe tarefa pelo campo de texto e manda para o ca
 
 function criar(){ /* cria uma linha de tabela com um campo de output de texto*/
     var campo_saida = document.createElement("output");  /* cria um novo elemento output */
-    campo_saida.setAttribute("id", "tarefa");
+    campo_saida.setAttribute("id", 'tarefa' + contador++); /*  */
     
     var linha = document.createElement("tr"); /* cria um novo elemento tr */
     var celula = document.createElement("td"); /* cria um novo elemento tr */
@@ -19,7 +21,6 @@ function criar(){ /* cria uma linha de tabela com um campo de output de texto*/
 }
 
 function recebe(){ /* recebe tarefa pelo campo de texto, cria uma linha de tabela e coloca um campo de saida com a  tarefa  */
-    //var contador = 0; /* contador de tarefas inseridas */
     var tarefa = document.getElementById("entrada_tarefa").value; /* recebe a tarefa pelo campo de input de texto e coloca na varialve tabela*/
 
     document.getElementById(criar()).innerHTML = tarefa;
