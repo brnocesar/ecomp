@@ -6,31 +6,36 @@ function recebe_teste() { /* recebe tarefa pelo campo de texto e manda para o ca
     document.getElementById("a_fazer").innerHTML = tarefa;
 }
 
-function criar(){ /* cria uma linha de tabela com um campo de output de texto*/
-    var campo_saida = document.createElement("output");  /* cria um novo elemento output */
-    campo_saida.setAttribute("id", 'tarefa' + contador++); /*  */
-    
-    var linha = document.createElement("tr"); /* cria um novo elemento tr */
-    var celula = document.createElement("td"); /* cria um novo elemento tr */
-    
+function criar(){ /* cria uma linha de tabela com um campo de output para texto*/
+    var campo_tarefa = document.createElement("output"); /* cria elemento output, onde será colocada a tarefa */
+    campo_tarefa.setAttribute("type", "text");
+    campo_tarefa.setAttribute("name", "saida");
+    campo_tarefa.setAttribute("id", "tarefa" + "contador++")
+    //campo_tarefa.setAttribute("class", "form-control"); /* adiciona os atributos no elemento output*/ /* nao consigo atribuir a classe form-control a este elemento */
 
-
-    var referencia = document.getElementById("inserir_linha") /* ponto de marcação para inserir as linhas de tabelas no html */
+    var cell = document.createElement("td"); /* cria elemento td, célula da tabela */
+    cell.appendChild(campo_tarefa); /* coloca o nó de texto dentro do elemento td (celula) */
     
-    return lalala; /* retorna a id do campo de saida em que a tarefa será colocada */
+    var row = document.createElement("tr"); /* cria elemento tr, linha da tabela */
+    row.appendChild(cell); /* coloca o elemento td dentro de tr */
+
+    var ref_inserir = document.getElementsByTagName("tbody")[0]; /* pega a a primeira ocorrencia da tag tbody como referencia (?) */
+    ref_inserir.appendChild(row); /* coloca o elemento tr de tbody, no fim */
+
+    return campo_tarefa.getAttribute("id"); /* retorna o id do elemento criado para conter a tarefa */
 }
 
-function recebe(){ /* recebe tarefa pelo campo de texto, cria uma linha de tabela e coloca um campo de saida com a  tarefa  */
+function recebe(){ /* recebe tarefa pelo campo de texto, chama funcao que cria uma linha na tabela com um campo de saida, e coloca a tarefa nesse campo */
     var tarefa = document.getElementById("entrada_tarefa").value; /* recebe a tarefa pelo campo de input de texto e coloca na varialve tabela*/
 
     document.getElementById(criar()).innerHTML = tarefa;
 }
 
-function muda(){
+function mudar(){
 
 }
 
-function apaga(){
+function apagar(){
     
 }
 

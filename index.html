@@ -32,16 +32,16 @@
 					<div class="input-group-append py-4 justify-content-center"> <!-- campo de texto e botao inserir -->
 						<input id="entrada_tarefa" type="text" name="entrada" placeholder="Digite a tarefa" class="form_control" required="">
 						<div class="input-group-append">	
-							<button class="btn btn-secondary" onclick="recebe()" type="button">
+							<button class="btn btn-secondary" onclick="criar()" type="button">
 								Inserir
 							</button>
 						</div>
 					</div>
 					<div class="input-group-append justify-content-center"> <!-- botoes mudar e apagar -->
-						<button class="btn btn-secondary" onclick="muda()" type="button">
+						<button class="btn btn-primary" onclick="muda()" type="button">
 							Mudar
 						</button>
-						<button class="btn btn-secondary" onclick="apaga()" type="button">
+						<button class="btn btn-success" onclick="apaga()" type="button">
 							Apagar
 						</button>
 					</div>
@@ -56,23 +56,23 @@
 			<div class="col-0 col-md"></div>
 
 			<div class="col-3 com-md bg-blue pb-5"> <!-- a fazer -->
-				<form>
-					<div class="input-group-append py-4" id="a_fazer"> <!-- tabela com as tarefas -->
+				<form> <!-- talvez esse form e a div sejam desnecessários -->
+					<div class="input-group-append py-4" id="div_para_fazer"> <!-- tabela com as tarefas -->
 						<table>
-							<tr>
-								<td>
-									<h2>Para fazer</h2>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<output id="a_fazer" type="text" name="saida" class="form-control" placeholder="tarefa para fazer">
-								
-									</output>
-								</td>
-							</tr>
-							
-							<!--<div id="inserir_linha"></div>  div de marcação, as linhas da tabela seram criadas acima desse elemento -->
+							<tbody> <!-- os novos campos de saida sao adicionados no final desse elemento -->
+								<tr>
+									<td>
+										<h2>Para fazer</h2>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<output id="a_fazer" type="text" name="saida"  class="form-control">
+									
+										</output>
+									</td>
+								</tr>
+							</tbody>
 						</table>
 					</div>
 				</form>
