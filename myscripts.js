@@ -7,11 +7,15 @@ function recebe_teste() { /* recebe tarefa pelo campo de texto e manda para o ca
 }
 
 function criar(){ /* cria uma linha de tabela com um campo de output para texto*/
+    /* cria um checkbox */
+    /* cria um elemento de/para texto, ou não, isso pode ser feito em recebe() */
+    /* faz as devidas atribuições */
     var campo_tarefa = document.createElement("output"); /* cria elemento output, onde será colocada a tarefa */
     campo_tarefa.setAttribute("type", "text");
     campo_tarefa.setAttribute("name", "saida");
-    campo_tarefa.setAttribute("id", "tarefa" + String(contador++))
-    //campo_tarefa.setAttribute("class", "form-control"); /* adiciona os atributos no elemento output*/ /* nao consigo atribuir a classe form-control a este elemento */
+    campo_tarefa.setAttribute("id", "tarefa" + String(contador++)); /* atribui o id em função do contador global */
+    
+    /* o id devera ser atribuido ao elemento td agora */
 
     var cell = document.createElement("td"); /* cria elemento td, célula da tabela */
     cell.appendChild(campo_tarefa); /* coloca o elemento output dentro do elemento td (celula) */
@@ -43,4 +47,5 @@ function apagar(){
 REFERÊNCIAS:
 Como criar div com javascript - https://pt.stackoverflow.com/questions/187803/como-criar-div-com-javascript
 Adentrando uma tabela HTML com Java​Script e interfaces DOM - https://developer.mozilla.org/pt-BR/docs/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces
+Forumlários: Checkboxes e radios - https://getbootstrap.com.br/docs/4.1/components/forms/#checkboxes-e-radios
 */

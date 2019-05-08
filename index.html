@@ -14,7 +14,7 @@
 	<div class="container">	
 		<div class="row"> <!-- cabeçalho e apresentação -->
 			<div class="col-0 col-md-3"></div>
-			<div class="col-12 col-md-6">
+			<div class="col-9 col-md-6">
 				<div class="text-center py-3 titulo gray">	
 					<h1>Gerenciador de tarefas</h1>
 					<p>Capacitação de JavaScript - Ecomp</p>
@@ -27,7 +27,7 @@
 	<div class="container">
 		<div class="row"> <!-- entrada e manipulação das tarefas -->
 			<div class="col-0 col-md"></div>
-			<div class="col-9 com-md bg-orange pb-5">
+			<div class="col-9 com-md bg-orange pb-3">
 				<form>
 					<div class="input-group-append py-4 justify-content-center"> <!-- campo de texto e botao inserir -->
 						<input id="entrada_tarefa" type="text" name="entrada" placeholder="Digite a tarefa" class="form_control" required="">
@@ -55,27 +55,16 @@
 		<div class="row"> <!-- tabela de status das tarefas -->
 			<div class="col-0 col-md"></div>
 
-			<div class="col-3 com-md bg-blue pb-5"> <!-- a fazer -->
-				<form> <!-- talvez esse form e a div sejam desnecessários -->
-					<div class="input-group-append py-4" id="div_para_fazer"> <!-- tabela com as tarefas -->
-						<table>
-							<tbody> <!-- os novos campos de saida sao adicionados no final desse elemento -->
-								<tr>
-									<td>
-										<h2>Para fazer</h2>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<output id="a_fazer" type="text" name="saida"  class="form-control">
-									
-										</output>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</form>
+			<div class="col-3 com-md bg-blue pb-1"> <!-- a fazer -->
+				<table> <!-- ################## manter esse elemento no topo da div ################## -->
+					<tbody> <!-- os novos campos de saida sao adicionados no final desse elemento -->
+						<tr>
+							<td>
+								<h2>Para fazer</h2>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 			
 			<div class="col-3 com-md bg-yellow pb-5"> <!-- fazendo -->
