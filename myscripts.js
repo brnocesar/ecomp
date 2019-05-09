@@ -7,7 +7,8 @@ function recebe_teste() { /* recebe tarefa pelo campo de texto e manda para o ca
 }
 
 function criar(){ /* cria uma linha de tabela com um campo de output para texto*/
-    /* cria um checkbox */
+    var seletor = document.createElement("input"); /* cria um elemento input */
+    seletor.setAttribute("type", "checkbox"); /* define o elemento input como checkbox */
     /* cria um elemento de/para texto, ou não, isso pode ser feito em recebe() */
     /* faz as devidas atribuições */
     var campo_tarefa = document.createElement("output"); /* cria elemento output, onde será colocada a tarefa */
@@ -18,6 +19,7 @@ function criar(){ /* cria uma linha de tabela com um campo de output para texto*
     /* o id devera ser atribuido ao elemento td agora */
 
     var cell = document.createElement("td"); /* cria elemento td, célula da tabela */
+    cell.appendChild(seletor); // teste ##############
     cell.appendChild(campo_tarefa); /* coloca o elemento output dentro do elemento td (celula) */
     
     var row = document.createElement("tr"); /* cria elemento tr, linha da tabela */
@@ -26,7 +28,7 @@ function criar(){ /* cria uma linha de tabela com um campo de output para texto*
     var ref_inserir = document.getElementsByTagName("tbody")[0]; /* pega a a primeira ocorrencia da tag tbody como referencia (?) */
     ref_inserir.appendChild(row); /* coloca o elemento tr de tbody, no fim */
 
-    return campo_tarefa.getAttribute("id"); /* retorna o id do elemento criado para conter a tarefa */
+    return campo_tarefa.getAttribute("id"); /* retorna o id do elemento de output criado para conter a tarefa */
 }
 
 function recebe(){ /* recebe tarefa pelo campo de texto, chama funcao que cria uma linha na tabela com um campo de saida, e coloca a tarefa nesse campo */
