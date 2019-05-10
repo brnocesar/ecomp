@@ -65,3 +65,6 @@ function recebe_texto() {
     document.getElementById("saida_texto").innerHTML = result;
     
 }
+
+
+

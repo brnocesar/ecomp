@@ -1,0 +1,32 @@
+
+.fundo {
+	background-image: url("a.jpg");
+    background-size: 250px;
+	background-repeat: repeat;
+	box-shadow: inset 0 0 0 10000px rgba(193, 251, 136, 0.7);  
+	margin: 0;
+	padding: 0;
+}
+
+.uau {
+    background-size: 250px;
+	background-repeat: repeat;
+	background-image: url("ue.jpg");
+	box-shadow: inset 0 0 0 10000px rgba(240, 34, 213, 0.349);  
+}
+
+.subli {
+    text-decoration: underline;
+}
+
+.gray {
+	color: rgb(138, 143, 143);
+}
+
+.bg-gray {
+	background-color: rgb(214, 214, 214); 
+}
+
+.caixa{
+	height: 100px;
+}
