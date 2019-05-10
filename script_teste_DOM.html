@@ -4,7 +4,15 @@
 
     <script>
         function criar() {
-            var cellText = document.createTextNode("cell is row"); /* cria elemento nó de texto, conteúdo da célula */
+            var texto;
+            if(document.getElementById("checagem").checked){
+                texto = "on";
+            }
+            else {
+                texto = "off";
+            }
+
+            var cellText = document.createTextNode(texto); /* cria elemento nó de texto, conteúdo da célula */
             var cell = document.createElement("td"); /* cria elemento td, célula da tabela */
             cell.appendChild(cellText); /* coloca o nó de texto dentro do elemento td (celula) */
             var row = document.createElement("tr"); /* cria elemento tr, linha da tabela */
@@ -24,8 +32,8 @@
         <tbody>
             <tr>
                 <td>
-                    <input type="checkbox">
-                    cell is not row
+                    <input type="checkbox" id="checagem"> <!-- checkbox -->
+                    texto ao lado do checkbox
                 </td>
             </tr>
             <!-- função criar() insere conteúdo aqui -->
