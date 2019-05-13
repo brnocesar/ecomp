@@ -5,8 +5,12 @@ function recebe_teste() { /* recebe tarefa pelo campo de texto e manda para o ca
     document.getElementById("a_fazer").innerHTML = tarefa;
 }
 
+function testa_entrada(){ /* testa se a tarefa inserida é valida */
+
+}
+
 function criar(){ /* cria uma linha/célula de tabela com um checkbox e retorna 'o elemento (?)' célula */
-    var contador = global++; /* incrementa o contador a cada nova tarefa */
+    var contador = global++; /* incrementa o contador a cada nova tarefa inserida */
 
     var seletor = document.createElement("input"); /* cria um elemento input */
     seletor.setAttribute("type", "checkbox"); /* define o elemento input como checkbox */
@@ -27,8 +31,10 @@ function criar(){ /* cria uma linha/célula de tabela com um checkbox e retorna 
 
 function recebe(){ /* recebe tarefa pelo campo de texto, chama funcao que cria uma linha na tabela com um campo de saida, e coloca a tarefa nesse campo */
     var tarefa_recebida = document.getElementById("entrada_tarefa").value; /* recebe a tarefa pelo campo de input" */
-    var no_tarefa = document.createTextNode(" " + tarefa_recebida); /* cria elemento nó de texto contendo a tarefa recebida */
-    criar().appendChild(no_tarefa); /* coloca o nó de texto no elemento td criado */
+    if(tarefa_recebida != ""){ /* garante que strings vazias não entrem como tarefas */
+        var no_tarefa = document.createTextNode(" " + tarefa_recebida); /* cria elemento nó de texto contendo a tarefa recebida */
+        criar().appendChild(no_tarefa); /* coloca o nó de texto no elemento td criado */
+    }
 }
 
 function mudar(){
