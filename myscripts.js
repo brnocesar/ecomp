@@ -54,23 +54,35 @@ function apagar(){
 
 }
 
-function mudar(){
+function mudar(atual_estado, novo_estado, j){
     
 }
 
-function verifica_estado(){ /* verifica se os checkbox estão selecionados */
+function verifica_mudanca(){ /* verifica se os checkbox estão selecionados quando botão 'mudar' é clicado */
     var contador = global;
 
     for(var i = 0; i < contador; i++){
-        var identificador = "faz" + String(i);
-        var estado_faz = document.getElementById(identificador).checked; /* estado do checkbox das tarefas para fazer */ //e se nao existe?
-        if(estado_faz){ /* se o checkbox está selecionado */
-            mudar(i);
+        var identificador;
+
+        /* verifica tarefas 'para fazer' */
+        identificador = "fazer_check_" + i; /* id para ser testado na coluna de tarefas 'para fazer' */
+        elemento_check = document.getElementById(identificador); /* elemento <input> (checkbox) que será avaliado */
+        if(Boolean(elemento_check)){ /* verifica se o elemento checkbox existe */
+            var estado_check = document.getElementById(identificador).checked;
+            if(estado_check){ /* verifica se o checkbox está selecionado, para executar a mudança */
+                mudar("fazer", "fazendo", i); /* muda do estado 'para fazer' -> 'fazendo' */
+            }
+            continue; /* elemento de número i existe na coluna 'para fazer', então passa para i+1 */
         }
 
-        estado_fnd = document.getElementById("fnd" + String(i)).checked; /* estado do checkbox das tarefas fazendo*/
-        if(estado_fnd){ /* se o checkbox está selecionado */
-            /*  */
+        /* verifica tarefas 'fazendo' */
+        identificador = "fazendo_check_" + i; /* id para ser testado na coluna de tarefas 'fazendo' */
+        elemento_check = document.getElementById(identificador); /* elemento <input> (checkbox) que será avaliado */
+        if(Boolean(elemento_check)){ /* verifica se o elemento checkbox existe */
+            var estado_check = document.getElementById(identificador).checked;
+            if(estado_check){ /* verifica se o checkbox está selecionado, para executar a mudança */
+                mudar("fazendo", "feito", i); /* muda do estado 'fazendo' -> 'feito' */
+            }
         }
     }
 }

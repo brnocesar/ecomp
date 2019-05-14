@@ -6,7 +6,9 @@
     <script>
         function criar() {
             var texto;
-            if(document.getElementById("checagem").checked){
+            var estado_check = document.getElementById("checagem").checked;
+            console.log("Estado do checkbox: " + estado_check);
+            if(estado_check){
                 texto = "ON";
             }
             else {
@@ -26,13 +28,29 @@
             row.appendChild(cell_check); /* coloca o elemento td dentro de tr */
             row.appendChild(cell); /* coloca o elemento td dentro de tr */
             var ref_inserir = document.getElementsByTagName("tbody")[0]; /* pega a a primeira ocorrencia da tag tbody como referencia (?) */
+            if(ref_inserir == undefined){
+                console.log("teste: " + ref_inserir);   
+            }
             ref_inserir.appendChild(row); /* coloca o elemento tr de tbody, no fim */
+        }
+
+        function testar(){
+            var existe_check = document.getElementById("checagem");
+            /* 'existe_check' é null se o id não existe */
+            console.log("existência: " + existe_check);
+            if(existe_check){
+                console.log("elemento existe: " + Boolean(existe_check));
+            }
+            else{
+                console.log("elemento NÃO existe: " + Boolean(existe_check));
+            }
+            criar();
         }
     </script>
 </head>
 
 <body>
-    <button class="btn btn-secondary" onclick="criar()" type="button">
+    <button class="btn btn-secondary" onclick="testar()" type="button">
         Criar linha
     </button>
             
