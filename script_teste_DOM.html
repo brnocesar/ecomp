@@ -2,7 +2,7 @@
 <head>
     <title>Teste - Inserção de celulas de uma tabela no arquivo HTML usando JavaScript e DOM Interfaces</title>
     <meta charset="utf-8">
-    
+
     <script>
         function criar() {
             var texto;
@@ -13,18 +13,21 @@
                 texto = "OFF";
             }
 
-            var par_texto = document.getElementById("paragrafo").innerText; /* conteúdo de texto dentro do elemento <p> */
+            var cell_check = document.createElement("td"); /* cria elemento td (célula da tabela) para conter espaço vazio */
+            var cell_empty_text = document.createTextNode("  "); /* cria elemento nó de texto, com espaço vazio */
+            cell_check.appendChild(cell_empty_text); /* coloca o nó de texto (com espaço vazio) dentro do elemento td (celula) */
 
-            var cellText = document.createTextNode(texto + " " + par_texto); /* cria elemento nó de texto, conteúdo da célula */
+            var par_texto = document.getElementById("celula_texto").innerText; /* conteúdo de texto dentro do elemento <td> */
+            var node_text = document.createTextNode(texto + " " + par_texto); /* cria elemento nó de texto, conteúdo da célula */
             var cell = document.createElement("td"); /* cria elemento td, célula da tabela */
-            cell.appendChild(cellText); /* coloca o nó de texto dentro do elemento td (celula) */
+            cell.appendChild(node_text); /* coloca o nó de texto dentro do elemento td (celula) */
+
             var row = document.createElement("tr"); /* cria elemento tr, linha da tabela */
+            row.appendChild(cell_check); /* coloca o elemento td dentro de tr */
             row.appendChild(cell); /* coloca o elemento td dentro de tr */
             var ref_inserir = document.getElementsByTagName("tbody")[0]; /* pega a a primeira ocorrencia da tag tbody como referencia (?) */
             ref_inserir.appendChild(row); /* coloca o elemento tr de tbody, no fim */
         }
-
-
     </script>
 </head>
 
@@ -37,10 +40,10 @@
         <tbody>
             <tr>
                 <td>
-                    <p id="paragrafo">
-                        <input type="checkbox" id="checagem"> <!-- checkbox -->
+                    <input type="checkbox" id="checagem"> <!-- checkbox -->
+                </td>
+                <td id="celula_texto">
                         texto ao lado do checkbox
-                    </p>
                 </td>
             </tr>
             <!-- função criar() insere conteúdo aqui -->
