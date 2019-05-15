@@ -50,37 +50,37 @@ function recebe(){ /* recebe tarefa pelo campo de texto
     
     if(tarefa_recebida != ""){ /* garante que strings vazias não entrem como tarefas */
         var no_tarefa = document.createTextNode(tarefa_recebida); /* cria elemento nó de texto contendo a tarefa recebida */
-        criar(0, "fazer").appendChild(no_tarefa); /* coloca a tarefa recebida no elemento <p> criado pela função criar() */
+        criar(0, "fazer").appendChild(no_tarefa); /* coloca a tarefa recebida no elemento <td> apropriado, criado e retornado pela função criar() */
     }
 }
 
-function apagar(k){ /* apaga tarefa identificada pelo número k */
+function apagar(k, estado){ /* apaga tarefa identificada pelo número k */
 
 }
 
-function mudar(atual_estado, novo_estado, j){ /* muda o estado da tarefa identificada pelo número j
+function mudar(j, atual_estado, novo_estado){ /* muda o estado da tarefa identificada pelo número j
     - RECEBE: duas strings: estado atual ('fazer' ou 'fazendo') e futuro ('fazendo' ou 'feito'), e o número de identificação da tarefa;
     - cria nova tarefa na coluna do novo_estado, copia o conteúdo da tarefa; 
     - apaga a tarefa na coluna atual_estado */
     
-    var tarefa_copiada = document.getElementById(atual_estado).innerText;
-    var no_tarefa = document.createTextNode(tarefa_copiada);
-    criar(j, novo_estado).appendChild(no_tarefa);
+    var tarefa_copiada = document.getElementById(atual_estado + "_celula_tarefa_" + j).innerText; /* copia o conteúdo da tarefa velha*/
+    var no_tarefa = document.createTextNode(tarefa_copiada); /* cria elemento nó de texto com a tarefa copiada */
+    criar(j, novo_estado).appendChild(no_tarefa); /* coloca a tarefa copiada na nova tarefa criada */
+    //apagar(j, atual_estado); /* apaga a tarefa velha */
 }
 
 function verifica_mudancas(){ /* verifica se os checkbox estão selecionados quando botão 'mudar' é clicado */
-    var identificador = global;
+    var total_tarefas = global;
 
-    for(var i = 0; i < identificador; i++){
-        var identificador;
+    for(var i = 0; i < total_tarefas; i++){
 
         /* verifica tarefas 'para fazer' */
-        identificador = "fazer_check_" + i; /* id para ser testado na coluna de tarefas 'para fazer' */
+        var identificador = "fazer_check_" + i; /* id para ser testado na coluna de tarefas 'para fazer' */
         elemento_check = document.getElementById(identificador); /* elemento <input> (checkbox) que será avaliado */
         if(Boolean(elemento_check)){ /* verifica se o elemento checkbox existe */
             var estado_check = document.getElementById(identificador).checked;
             if(estado_check){ /* verifica se o checkbox está selecionado, para executar a mudança */
-                mudar("fazer", "fazendo", i); /* muda do estado 'para fazer' -> 'fazendo' */
+                mudar(i, "fazer", "fazendo"); /* muda do estado 'para fazer' -> 'fazendo' */
             }
             continue; /* elemento de número i existe na coluna 'para fazer', então passa para i+1 */
         }
@@ -91,7 +91,7 @@ function verifica_mudancas(){ /* verifica se os checkbox estão selecionados qua
         if(Boolean(elemento_check)){ /* verifica se o elemento checkbox existe */
             var estado_check = document.getElementById(identificador).checked;
             if(estado_check){ /* verifica se o checkbox está selecionado, para executar a mudança */
-                mudar("fazendo", "feito", i); /* muda do estado 'fazendo' -> 'feito' */
+                mudar(i, "fazendo", "feito"); /* muda do estado 'fazendo' -> 'feito' */
             }
         }
     }
