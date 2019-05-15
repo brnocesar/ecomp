@@ -4,30 +4,34 @@ function testa_entrada(){ /* testa se a tarefa inserida é valida */
 
 }
 
-function criar(estado){ /* cria uma nova tarefa
-    - recebe uma string que representa o estado ("fazer", "fazendo" ou "feito") da tarefa criada:
-    o argumento é: o id do elemento <tbody> onde será criada a tarefa, e parte do id dos novos elementos criados;
+function criar(identidade, estado){ /* cria uma nova tarefa
+    - RECEBE: número inteiro que atua como identiicador da tarefa: == 0, tarefa nova; != 0, tarefa ja existe.
+    - RECEBE: string que representa o estado ("fazer", "fazendo" ou "feito") da tarefa criada,
+    essa string é o id do elemento <tbody> onde será criada a tarefa, e parte do id dos novos elementos criados.
     - a tarefa criada tem a seguinte estrutura:
-    <tr id=estado+"">
-    <td id=estado+"_celula_seletor_n"> <input id=estado+"_check_n" type="checkbox"> </td>
-    <td id=estado+""> "tarefa" </td>
+    <tr id=estado+"_linha_"+n>
+    <td id=estado+"_celula_seletor_"+n> <input id=estado+"_check_"+n type="checkbox"> </td>
+    <td id=estado+"_celula_tarefa_"+n> "tarefa" </td>
     </tr>
-    - retorna o elemento <p> criado */
-    var contador = global++; /* incrementa o contador a cada nova tarefa inserida */ //verificar se a atribuição ocorre antes do incremento
+    - RETORNA: elemento <p> criado */
+
+    if(!identidade){
+        identidade = global++; /* se a tarefa é nova, incrementa o identificador a cada nova tarefa inserida */
+    }
 
     var seletor = document.createElement("input"); /* cria um elemento <input> */
     seletor.setAttribute("type", "checkbox"); /* define o elemento input como checkbox */
-    seletor.setAttribute("id", estado + "_check_" + String(contador)); /* atribui o id em função do contador global */
+    seletor.setAttribute("id", estado + "_check_" + String(identidade)); /* atribui o id em função do identificador global */
 
     var celula_seletor = document.createElement("td"); /* cria um elemento <td> (célula da tabela) para o checkbox */
-    celula_seletor.setAttribute("id", estado + "_celula_seletor_" + String(contador)); /* atribui o id em função do contador global */ //talvez desnescessário
+    celula_seletor.setAttribute("id", estado + "_celula_seletor_" + String(identidade)); /* atribui o id em função do identificador global */ //desnescessário
     celula_seletor.appendChild(seletor); /* coloca o elemento <input> (checkbox) dentro do elemento <td> */
 
     var celula_tarefa = document.createElement("td"); /* cria um elemento <td> para o texto da tarefa*/
-    celula_tarefa.setAttribute("id", estado + "_celula_tarefa_" + String(contador)); /* atribui o id em função do contador global */
+    celula_tarefa.setAttribute("id", estado + "_celula_tarefa_" + String(identidade)); /* atribui o id em função do identificador global */
 
     var linha = document.createElement("tr"); /* cria um elemento <tr> (linha da tabela) */
-    linha.setAttribute("id", estado + "_linha_" + String(contador)); /* atribui o id em função do contador global */ //talvez desnescessário
+    linha.setAttribute("id", estado + "_linha_" + String(identidade)); /* atribui o id em função do identificador global */ //talvez desnescessário
     linha.appendChild(celula_seletor); /* coloca o elemento <td> (com checkbox) dentro de <tr> */
     linha.appendChild(celula_tarefa); /* coloca o elemento <td> (que irá conter o texto da tarefa) dentro de <tr> */
 
@@ -46,7 +50,7 @@ function recebe(){ /* recebe tarefa pelo campo de texto
     
     if(tarefa_recebida != ""){ /* garante que strings vazias não entrem como tarefas */
         var no_tarefa = document.createTextNode(tarefa_recebida); /* cria elemento nó de texto contendo a tarefa recebida */
-        criar("fazer").appendChild(no_tarefa); /* coloca a tarefa recebida no elemento <p> criado pela função criar() */
+        criar(0, "fazer").appendChild(no_tarefa); /* coloca a tarefa recebida no elemento <p> criado pela função criar() */
     }
 }
 
@@ -55,16 +59,19 @@ function apagar(k){ /* apaga tarefa identificada pelo número k */
 }
 
 function mudar(atual_estado, novo_estado, j){ /* muda o estado da tarefa identificada pelo número j
-    - recebe duas strings: estado atual ('fazer' ou 'fazendo') e futuro ('fazendo' ou 'feito'), e o número de identificação da tarefa;
+    - RECEBE: duas strings: estado atual ('fazer' ou 'fazendo') e futuro ('fazendo' ou 'feito'), e o número de identificação da tarefa;
     - cria nova tarefa na coluna do novo_estado, copia o conteúdo da tarefa; 
     - apaga a tarefa na coluna atual_estado */
     
+    var tarefa_copiada = document.getElementById(atual_estado).innerText;
+    var no_tarefa = document.createTextNode(tarefa_copiada);
+    criar(j, novo_estado).appendChild(no_tarefa);
 }
 
 function verifica_mudancas(){ /* verifica se os checkbox estão selecionados quando botão 'mudar' é clicado */
-    var contador = global;
+    var identificador = global;
 
-    for(var i = 0; i < contador; i++){
+    for(var i = 0; i < identificador; i++){
         var identificador;
 
         /* verifica tarefas 'para fazer' */
