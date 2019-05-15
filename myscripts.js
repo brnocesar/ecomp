@@ -55,7 +55,8 @@ function recebe(){ /* recebe tarefa pelo campo de texto
 }
 
 function apagar(k, estado){ /* apaga tarefa identificada pelo número k */
-
+    var tarefa_apagada = document.getElementById(estado + "_linha_" + k);
+    tarefa_apagada.parentNode.removeChild(tarefa_apagada);
 }
 
 function mudar(j, atual_estado, novo_estado){ /* muda o estado da tarefa identificada pelo número j
@@ -66,7 +67,7 @@ function mudar(j, atual_estado, novo_estado){ /* muda o estado da tarefa identif
     var tarefa_copiada = document.getElementById(atual_estado + "_celula_tarefa_" + j).innerText; /* copia o conteúdo da tarefa velha*/
     var no_tarefa = document.createTextNode(tarefa_copiada); /* cria elemento nó de texto com a tarefa copiada */
     criar(j, novo_estado).appendChild(no_tarefa); /* coloca a tarefa copiada na nova tarefa criada */
-    //apagar(j, atual_estado); /* apaga a tarefa velha */
+    apagar(j, atual_estado); /* apaga a tarefa velha */
 }
 
 function verifica_mudancas(){ /* verifica se os checkbox estão selecionados quando botão 'mudar' é clicado */
@@ -98,7 +99,41 @@ function verifica_mudancas(){ /* verifica se os checkbox estão selecionados qua
 }
 
 function verifica_terminadas(){
+    var total_tarefas = global;
 
+    for(var i = 0; i < total_tarefas; i++){
+
+        /* verifica tarefas 'para fazer' */
+        var identificador = "fazer_check_" + i; /* id para ser testado na coluna de tarefas 'para fazer' */
+        elemento_check = document.getElementById(identificador); /* elemento <input> (checkbox) que será avaliado */
+        if(Boolean(elemento_check)){ /* verifica se o elemento checkbox existe */
+            var estado_check = document.getElementById(identificador).checked;
+            if(estado_check){ /* verifica se o checkbox está selecionado, para apagar */
+                apagar(i, "fazer"); /* apaga a tarefa identificada pelo número i e que está na coluna 'Para Fazer' */
+            }
+            continue; /* elemento de número i existe na coluna 'para fazer', então passa para i+1 */
+        }
+
+        /* verifica tarefas 'fazendo' */
+        identificador = "fazendo_check_" + i; /* id para ser testado na coluna de tarefas 'fazendo' */
+        elemento_check = document.getElementById(identificador); /* elemento <input> (checkbox) que será avaliado */
+        if(Boolean(elemento_check)){ /* verifica se o elemento checkbox existe */
+            var estado_check = document.getElementById(identificador).checked;
+            if(estado_check){ /* verifica se o checkbox está selecionado, para apagar */
+                apagar(i, "fazendo"); /* apaga a tarefa identificada pelo número i e que está na coluna 'Fazendo' */
+            }
+        }
+
+        /* verifica tarefas 'feitas' */
+        identificador = "feito_check_" + i; /* id para ser testado na coluna de tarefas 'feito' */
+        elemento_check = document.getElementById(identificador); /* elemento <input> (checkbox) que será avaliado */
+        if(Boolean(elemento_check)){ /* verifica se o elemento checkbox existe */
+            var estado_check = document.getElementById(identificador).checked;
+            if(estado_check){ /* verifica se o checkbox está selecionado, para apagar */
+                apagar(i, "feito"); /* apaga a tarefa identificada pelo número i e que está na coluna 'Feito' */
+            }
+        }
+    }
 }
 
 /*
@@ -107,4 +142,6 @@ REFERÊNCIAS:
 https://pt.stackoverflow.com/questions/187803/como-criar-div-com-javascript
 - Adentrando uma tabela HTML com Java​Script e interfaces DOM
 https://developer.mozilla.org/pt-BR/docs/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces
+- Remover elemento da página com javascript
+https://pt.stackoverflow.com/questions/4605/remover-elemento-da-p%C3%A1gina-com-javascript
 */
