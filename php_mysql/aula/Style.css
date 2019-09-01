@@ -1,0 +1,120 @@
+#body{padding: 0px;}
+
+.container-fluid{padding:0;}
+
+#parallax-1 {
+  	text-align: center;
+	margin-top: 25px;
+	background-image: url(universo.jpg);
+	padding-top: 10px;
+	color: white;
+	font-family: 'Hind', sans-serif;
+  	background-attachment: fixed;
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover; 
+  }
+
+#caixaDeTexto{
+	text-align: center;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+#Fazer .nome{
+	padding: 0px;background-color: red;
+}
+
+#Fazendo .nome{background-color: orange;}
+#Feito .nome{background-color: green;}
+
+
+h3{
+	text-align: center;
+	margin-top: 10px;
+	font-family: 'Lobster', cursive;
+	color: white;
+}
+
+a{
+	color: black;
+	font-size: 20px;
+	font-family: 'Lobster', cursive;
+}
+
+.Afazer, .Fazendoo, .Feitoo{
+	padding-bottom: 10px;
+}
+
+#Fazer,#Fazendo,#Feito{
+	text-align:center;
+}
+
+.apaga, .muda, .mudaFA{
+	float: right;
+	margin-right: 10px;
+}
+
+.muda, .mudaFA {
+	background-color:#000cf5;
+	-moz-border-radius:25px;
+	-webkit-border-radius:25px;
+	border-radius:25px;
+	border:2px solid #0a6cff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Courier New;
+	font-size:14px;
+	padding:4px 5px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #4c98f5;
+
+}
+.muda, .mudaFA:hover {
+	background-color:#0c5af5
+}
+.apaga, .muda, .mudaFA:active {
+	position:relative;
+	top:1px;
+}
+
+.apaga{
+	background-color:#f50800;
+	-moz-border-radius:25px;
+	-webkit-border-radius:25px;
+	border-radius:25px;
+	border:2px solid #bd2f2f;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Courier New;
+	font-size:14px;
+	padding:4px 8px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #d68585;
+}
+
+.apaga:hover {
+	background-color:#f54e31;
+}
+
+button{
+	border-radius:25px;
+	border:1px solid;
+}
+
+.Afazer{
+	border: 2px solid red;
+	padding-top:5px;
+}
+
+.Fazendoo{
+	border:2px solid orange;
+	padding-top:5px;
+}
+
+.Feitoo{
+	border:2px solid green;
+	padding-top:5px;
+}

@@ -1,0 +1,48 @@
+$ php -S localhost:8080 // "compilar" arquivo
+$ myspl -u root
+
+mysql> create database kanban;
+
+mysql> use kanban;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+
+mysql> create table tarefas(coluna_tarefa varchar(45) not null, coluna_stats(1)); //criei a tabela sem id e primary key
+
+mysql>create table tarefas( coluna_tarefa varchar(45) not null, coluna_stats int(1) not null, id int auto_increment, primary key(id));
+
+mysql> show columns from tarefas;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| coluna_tarefa | varchar(45) | NO   |     | NULL    |                |
+| coluna_stats  | int(1)      | NO   |     | NULL    |                |
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
++---------------+-------------+------+-----+---------+----------------+
+3 rows in set (0,01 sec)
+
+mysql> select * from tarefas; //logo apos criar a tabela
+Empty set (0,00 sec)
+
+mysql> select * from tarefas; // apos inserir duas tarefas
++---------------+--------------+----+
+| coluna_tarefa | coluna_stats | id |
++---------------+--------------+----+
+| teste         |            0 |  1 |
+| outro teste   |            0 |  2 |
++---------------+--------------+----+
+2 rows in set (0,00 sec)
+
+mysql> select * from tarefas; // apos mudar uma tarefa para fazendo
++---------------+--------------+----+
+| coluna_tarefa | coluna_stats | id |
++---------------+--------------+----+
+| teste         |            1 |  1 |
+| outro teste   |            0 |  2 |
++---------------+--------------+----+
+2 rows in set (0,00 sec)
+
+mysql> drop table tarefas;
+Query OK, 0 rows affected (0,44 sec)
