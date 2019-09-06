@@ -15,6 +15,6 @@ As tarefas podem assumir três status:
 2. doing;
 3. done.
 
-As tarefas com status 'to do' e 'doing' podem ter seu estatus alterados para o status seguinte e também apagadas, enquanto que as tarefas com status 'done' podem apenas ser apagas.
+As tarefas com status _to do_ e _doing_ podem ter seu estatus alterados para o status seguinte e também apagadas, enquanto que as tarefas com status _done_ podem apenas ser apagas.
 
 ## 3. Capacitação em PHP + MySQL
