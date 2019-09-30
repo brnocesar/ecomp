@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('criarGrupo', 'API\GrupoController@store');
+Route::post('atualizarGrupo', 'API\GrupoController@update');
+Route::post('deletarGrupo', 'API\GrupoController@destroy');
+Route::post('mostrarGrupo', 'API\GrupoController@show');
+Route::post('listarGrupos', 'API\GrupoController@index');
