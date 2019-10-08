@@ -79,8 +79,6 @@ class GrupoController extends BaseController{
         if( !$grupo ){
             return $this::enviarRespostaErro('Grupo não encontrado.', null);
         }
-        
-        // $grupo->delete();
 
         return $this::enviarRespostaSucesso($grupo);
     }

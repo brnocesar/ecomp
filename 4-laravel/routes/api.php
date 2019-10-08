@@ -18,3 +18,10 @@ Route::post('atualizarGrupo', 'API\GrupoController@update');
 Route::post('deletarGrupo', 'API\GrupoController@destroy');
 Route::post('mostrarGrupo', 'API\GrupoController@show');
 Route::post('listarGrupos', 'API\GrupoController@index');
+
+Route::post('criarEmpresa', 'API\EmpresaController@store');
+Route::post('atualizarEmpresa', 'API\EmpresaController@update');
+Route::post('deletarEmpresa', 'API\EmpresaController@destroy');
+Route::post('RemoverGrupo', 'API\EmpresaController@removeGrupo');
+Route::post('mostrarEmpresa', 'API\EmpresaController@show');
+Route::post('listarEmpresas', 'API\EmpresaController@index');

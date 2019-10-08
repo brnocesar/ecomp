@@ -15,6 +15,10 @@ class CreateEmpresasTable extends Migration
     {
         Schema::create('empresas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nome');
+            $table->string('endereco');
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }
