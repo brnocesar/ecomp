@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Grupo;
 
-class GrupoController extends Controller{
+class GrupoController extends BaseController{
     
     public function store(Request $request){
         $validator = Validator::make($request->all(), [
@@ -27,9 +27,9 @@ class GrupoController extends Controller{
     }
 
     public function update(Request $request){
-        $valdiator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'id' => 'required|integer',
-            'nome' => 'required|mas:255',
+            'nome' => 'required|max:255',
         ]);
 
         if( $validator->fails() ){
@@ -80,14 +80,14 @@ class GrupoController extends Controller{
             return $this::enviarRespostaErro('Grupo não encontrado.', null);
         }
         
-        $grupo->delete();
+        // $grupo->delete();
 
         return $this::enviarRespostaSucesso($grupo);
     }
 
     public function index(){
         $grupos = Grupo::all();
-        if($grupos->count > 0){
+        if($grupos->count() > 0){
             return $this::enviarRespostaSucesso($grupos, 'Grupos cadastrados.', 200);
         }
 
