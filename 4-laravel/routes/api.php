@@ -25,3 +25,10 @@ Route::post('deletarEmpresa', 'API\EmpresaController@destroy');
 Route::post('RemoverGrupo', 'API\EmpresaController@removeGrupo');
 Route::post('mostrarEmpresa', 'API\EmpresaController@show');
 Route::post('listarEmpresas', 'API\EmpresaController@index');
+
+Route::post('criarColaborador', 'API\ColaboradorController@store');
+Route::post('atualizarColaborador', 'API\ColaboradorController@update');
+Route::post('deletarColaborador', 'API\ColaboradorController@destroy');
+Route::post('RemoverGrupo', 'API\ColaboradorController@removeGrupo');
+Route::post('mostrarColaborador', 'API\ColaboradorController@show');
+Route::post('listarColaboradores', 'API\ColaboradorController@index');
