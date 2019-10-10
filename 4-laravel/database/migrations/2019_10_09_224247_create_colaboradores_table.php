@@ -18,7 +18,7 @@ class CreateColaboradoresTable extends Migration
             $table->string('nome');
             $table->string('idade');
             // $table->integer('empresa_id')->unsigned();
-            $table->unsignedBigInteger('empresa_id');
+            $table->unsignedBigInteger('empresa_id')->nullable();
             $table->foreign('empresa_id')->references('id')->on('empresas')->onDelete('cascade');
 
             $table->softDeletes();

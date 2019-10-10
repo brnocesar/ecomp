@@ -41,7 +41,7 @@ class EmpresaController extends BaseController
     public function update(Request $request){
         $validator = Validator::make($request->all(), [
             'grupo_id' => 'required|integer',
-            'id' => 'required|integer',
+            'empresa_id' => 'required|integer',
             'nome' => 'required|max:255',
             // 'endereco' => 'optional|max:255'
             'endereco' => 'required|max:255'
@@ -56,7 +56,7 @@ class EmpresaController extends BaseController
             return $this::enviarRespostaErro('Grupo não encontrado.', null);
         }
 
-        $empresa = Empresa::find($request->id);
+        $empresa = Empresa::find($request->empresa_id);
         if( !$empresa ){
             return $this::enviarRespostaErro('Empresa não encontrada.', null);
         }
@@ -71,7 +71,7 @@ class EmpresaController extends BaseController
     public function destroy(Request $request){
         $validator = Validator::make($request->all(), [
             'grupo_id' => 'required|integer',
-            'id' => 'required|integer',
+            'empresa_id' => 'required|integer',
         ]);
 
         if( $validator->fails() ){
@@ -83,14 +83,14 @@ class EmpresaController extends BaseController
             return $this::enviarRespostaErro('Grupo não encontrado.', null);
         }
 
-        $empresa = Empresa::find($request->id);
+        $empresa = Empresa::find($request->empresa_id);
         if( !$empresa ){
             return $this::enviarRespostaErro('Empresa não encontrada.', null);
         }
 
         $empresa->delete();
 
-        return $this::enviarRespostaSucesso($empresa, 'Grupo deletado com sucesso.', 200);
+        return $this::enviarRespostaSucesso($empresa, 'Empresa deletada com sucesso.', 200);
     }
 
     public function removeGrupo(Request $request){
@@ -116,14 +116,14 @@ class EmpresaController extends BaseController
     public function show(Request $request){
         $validator = Validator::make($request->all(), [
             'grupo_id' => 'required|integer',
-            'id' => 'required|integer',
+            'empresa_id' => 'required|integer',
         ]);
 
         if( $validator->fails() ){
             return $this::enviarRespostaErro( 'Campo incorreto.', $validator->errors() );
         }
 
-        $empresa = Empresa::find($request->id);
+        $empresa = Empresa::find($request->empresa_id);
         $grupo = Grupo::find($request->grupo_id);
         if( !$empresa || !$grupo ){
             return $this::enviarRespostaErro('Empresa ou grupo não encontrados.', null);
