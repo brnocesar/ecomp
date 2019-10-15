@@ -32,3 +32,9 @@ Route::post('deletarColaborador', 'API\ColaboradorController@destroy');
 Route::post('removerEmpresa', 'API\ColaboradorController@removeEmpresa');
 Route::post('mostrarColaborador', 'API\ColaboradorController@show');
 Route::post('listarColaboradores', 'API\ColaboradorController@index');
+
+Route::post('criarSalario', 'API\SalarioController@store');
+Route::post('atualizarSalario', 'API\SalarioController@update');
+Route::post('deletarSalario', 'API\SalarioController@destroy');
+Route::post('removerColaborador', 'API\SalarioController@removeColaborador');
+Route::post('mostrarSalario', 'API\SalarioController@show');
