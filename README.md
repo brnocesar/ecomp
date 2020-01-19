@@ -1,4 +1,5 @@
 # Atividades desenvolvidas na Ecomp
+A [Ecomp](https://ecomp.co/) é a Empresa Júnior de Informática da UFPR, a qual sou membro desde Março de 2019.
 
 ## 1. Processo Seletivo - Período Trainee
 ### Projeto paralelo desenvolvido em equipe, como parte do Processo Seletivo para ingresso na Ecomp.
