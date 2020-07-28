@@ -1,16 +1,16 @@
 # Atividades desenvolvidas na Ecomp
-A [Ecomp](https://ecomp.co/) é a Empresa Júnior de Informática da UFPR, a qual sou membro desde Março de 2019.
+A [Ecomp](https://ecomp.co/) é a Empresa Júnior de Informática da UFPR. "Frequentei" o curso de TADS por um tempinho e tive a oportunidade de fazer parte da Ecomp no período de Março de 2019 a Março do ano seguinte.
 
-## 1. Processo Seletivo - Período Trainee
-### Projeto paralelo desenvolvido em equipe, como parte do Processo Seletivo para ingresso na Ecomp.
-O objetivo da atividade foi reproduzir o layout da página `trainee/template/unicorn_00` totalmente responsivo. Para isso, deveriam ser utilizados *HTML*, *CSS* e *Bootstrap*.
+## 1. Período Trainee
+### Projeto paralelo desenvolvido em equipe, como parte do Processo Seletivo
+O objetivo da atividade foi reproduzir o layout da página [`trainee/template/unicorn_00`](https://raw.githubusercontent.com/brnocesar/ecomp/master/1-trainee/template/unicorn_00.jpg) totalmente responsivo. E para isso, deveriam ser utilizados *HTML*, *CSS* e *Bootstrap*.
 ### Membros:
 * Bruno Cesar
 * Henrique Rieger
 * Lucas Alionço
 
 ## 2. Capacitação em JavaScript
-A aplicação se trata de um kanban para gerenciar tarefas.
+A aplicação se trata de um _kanban_ para gerenciar tarefas.
 As tarefas podem assumir três status:
 1. to do;
 2. doing;
